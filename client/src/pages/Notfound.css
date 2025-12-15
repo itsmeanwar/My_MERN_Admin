@@ -1,0 +1,72 @@
+.notfound-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  padding: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Theme support */
+body.theme-dark .notfound-container {
+  background: #121212;
+  color: #eee;
+}
+
+body.theme-light .notfound-container {
+  background: #f9f9f9;
+  color: #333;
+}
+
+body.theme-gray .notfound-container {
+  background: #e0e0e0;
+  color: #222;
+}
+
+.notfound-content h1 {
+  font-size: 8rem;
+  margin-bottom: 10px;
+}
+
+.notfound-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.notfound-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* Button */
+.btn-home {
+  padding: 10px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-home:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .notfound-content h1 {
+    font-size: 5rem;
+  }
+
+  .notfound-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn-home {
+    width: 80%;
+  }
+}

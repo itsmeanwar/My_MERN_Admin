@@ -1,0 +1,261 @@
+/* Footer.css - responsive, theme-aware, pill buttons, fade-up reveal */
+
+/* Base variables (also honor prefers-color-scheme and body.theme-*) */
+:root {
+  --bg: #0f1113;
+  --muted: #bfc6cc;
+  --text: #ffffff;
+  --accent: #15d0ff;
+  --card: #111215;
+}
+
+/* prefers-color-scheme overrides (auto) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f9fb;
+    --muted: #4a5560;
+    --text: #0f1724;
+    --accent: #007bff;
+    --card: #ffffff;
+  }
+}
+
+/* If your app sets body.theme-light / theme-dark / theme-gray, use those too */
+body.theme-dark {
+  --bg: #0f1113;
+  --muted: #bfc6cc;
+  --text: #ffffff;
+  --accent: #15d0ff;
+  --card: #111215;
+}
+body.theme-light {
+  --bg: #f7f9fb;
+  --muted: #4a5560;
+  --text: #0f1724;
+  --accent: #007bff;
+  --card: #ffffff;
+}
+body.theme-gray {
+  --bg: #eef0f4;
+  --muted: #2b2b2b;
+  --text: #111;
+  --accent: #7373ff;
+  --card: #ffffff;
+}
+
+/* Layout */
+.footer {
+  background: var(--bg);
+  color: var(--text);
+  padding: 48px 20px 26px;
+  margin: 0 auto;
+  max-width:1400px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  padding: 0 20px;
+}
+
+/* Col */
+.footer-col h3 {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+.footer-col p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Social pill buttons */
+.social-row {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s;
+  text-decoration: none;
+}
+.social-pill:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.06));
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  color: var(--accent);
+}
+
+/* Quick links */
+.quick-links {
+  list-style: none;
+  padding: 0;
+}
+.quick-links li {
+  margin-bottom: 8px;
+}
+.quick-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.quick-links a:hover {
+  color: var(--text);
+  padding-left: 6px;
+  transition: 0.18s;
+}
+
+/* Map container */
+.map-container {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Newsletter (pill button inline) */
+.newsletter {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.newsletter input[type="email"] {
+  flex: 1 1 auto;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  outline: none;
+}
+.newsletter input::placeholder {
+  color: var(--muted);
+}
+.pill-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.16s ease, filter 0.16s;
+}
+.pill-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+/* Footer bottom - copyright + back-to-top inside footer (right) */
+.footer-bottom {
+  max-width: 1400px;
+  margin: 28px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-bottom p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.top-btn {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s;
+}
+.top-btn:hover {
+  background: rgba(255,255,255,0.02);
+  transform: translateY(-3px);
+}
+
+/* Fade-up reveal animation (CSS) */
+.footer.reveal .footer-col,
+.footer.reveal .footer-bottom {
+  transform: translateY(0);
+  opacity: 1;
+}
+.footer .footer-col,
+.footer .footer-bottom {
+  transform: translateY(18px);
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(.2,.9,.3,1), opacity 0.45s ease;
+}
+.footer.reveal .footer-col {
+  transition-delay: 0.08s;
+}
+.footer.reveal .footer-col:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.footer.reveal .footer-col:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.footer.reveal .footer-bottom {
+  transition-delay: 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-right {
+    order: 3;
+  }
+}
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .map-container {
+    height: 200px;
+  }
+  .newsletter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .newsletter input[type="email"] {
+    width: 100%;
+  }
+  .footer-bottom {
+    padding-top: 14px;
+  }
+}

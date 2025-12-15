@@ -1,0 +1,132 @@
+/* ===== RESET ===== */
+.contact * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== PAGE CENTER WITH NAV/FOOTER SPACE ===== */
+.contact .page-content {
+  min-height: calc(100vh - 160px); /* adjust for header + footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ===== NEO-MORPHIC FORM BOX ===== */
+.contact form {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px 45px;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow:
+    8px 8px 20px rgba(0,0,0,0.25),
+    -8px -8px 20px rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  transition: var(--transition);
+  margin-bottom: 20px; /* spacing from footer */
+}
+
+/* ===== FORM TITLE ===== */
+.contact h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+/* ===== INPUT GROUP ===== */
+.contact form .input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.9;
+  transition: color var(--transition);
+}
+
+/* ===== INPUT & TEXTAREA ===== */
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.14);
+  outline: none;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--card);
+  transition: var(--transition);
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.35),
+    inset -4px -4px 8px rgba(255,255,255,0.05);
+  resize: none;
+}
+
+/* TEXTAREA HEIGHT */
+.contact textarea {
+  min-height: 140px;
+}
+
+/* INPUT & TEXTAREA FOCUS/HOVER */
+.contact input:hover,
+.contact textarea:hover,
+.contact input:focus,
+.contact textarea:focus {
+  border-color: var(--primary);
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.35),
+    inset -4px -4px 8px rgba(255,255,255,0.05),
+    0 0 6px var(--primary);
+}
+
+/* ===== BUTTON ===== */
+.contact button.contact-btn {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  transition: var(--transition);
+  box-shadow:
+    4px 4px 12px rgba(0,0,0,0.3),
+    -4px -4px 12px rgba(255,255,255,0.05);
+}
+
+.contact button.contact-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.contact button.contact-btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 650px) {
+  .contact form {
+    width: 90%;
+    padding: 30px 25px;
+  }
+
+  .contact h2 {
+    font-size: 26px;
+  }
+}

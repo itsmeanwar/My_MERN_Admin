@@ -1,0 +1,272 @@
+/* ========================== */
+/*      GLOBAL RESET          */
+/* ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ========================== */
+/*       THEME VARIABLES      */
+/* ========================== */
+:root {
+  --nav-bg: #111111;
+  --text: #ffffff;
+  --primary: #00d0ff;
+  --card: #1a1a1a;
+  --underline: #00d0ff;
+  --transition: 0.32s ease-in-out;
+
+  --shadow-light: rgba(255, 255, 255, 0.15);
+  --shadow-dark: rgba(0, 0, 0, 0.55);
+}
+
+/* DARK THEME */
+.theme-dark {
+  --nav-bg: #111111;
+  --text: #ffffff;
+  --primary: #00d0ff;
+  --card: #1a1a1a;
+  --underline: #00d0ff;
+  --shadow-light: rgba(255, 255, 255, 0.08);
+  --shadow-dark: rgba(0, 0, 0, 0.65);
+}
+
+/* LIGHT THEME */
+.theme-light {
+  --nav-bg: #ffffff;
+  --text: #222222;
+  --primary: #007bff;
+  --card: #f7f7f7;
+  --underline: #007bff;
+  --shadow-light: rgba(255, 255, 255, 0.9);
+  --shadow-dark: rgba(0, 0, 0, 0.14);
+}
+
+/* GRAY THEME */
+.theme-gray {
+  --nav-bg: #e9ecef;
+  --text: #1a1a1a;
+  --primary: #7373ff;
+  --card: #d8d8d8;
+  --underline: #7373ff;
+  --shadow-light: rgba(255, 255, 255, 0.85);
+  --shadow-dark: rgba(120, 120, 120, 0.25);
+}
+
+/* ========================== */
+/*        GLOBAL STYLES       */
+/* ========================== */
+body {
+  background: var(--card);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Prevent navbar from covering content */
+.app-padding-top {
+  padding-top: 75px;
+}
+
+/* ========================== */
+/*       PAGE CENTER FOR FORMS */
+/* ========================== */
+.registration .page-content,
+.login .page-content,
+.contact .page-content {
+  min-height: calc(100vh - 160px); /* Adjust for nav + footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ========================== */
+/*      FORM CONTAINERS       */
+/* ========================== */
+.registration form,
+.login form.login-box,
+.contact form {
+  width: 100%;
+  max-width: 500px; 
+  padding: 40px 45px;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow:
+    8px 8px 20px rgba(0,0,0,0.25),
+    -8px -8px 20px rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  transition: var(--transition);
+  margin-bottom: 20px; /* spacing from footer */
+  animation: fadeSlideIn 0.6s ease forwards;
+}
+
+/* ========================== */
+/*        FORM TITLES         */
+/* ========================== */
+.registration h2,
+.login h2.title,
+.contact h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+/* ========================== */
+/*       INPUT GROUPS          */
+/* ========================== */
+.registration form div,
+.login .input-area,
+.contact form .input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.registration label,
+.login .input-area label,
+.contact label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.9;
+  transition: color var(--transition);
+  text-align: left; /* LEFT ALIGN LABELS */
+  display: block;
+}
+
+/* ========================== */
+/*       INPUT FIELDS          */
+/* ========================== */
+.registration input,
+.login .input-area input,
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.14);
+  outline: none;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--card);
+  transition: var(--transition);
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.35),
+    inset -4px -4px 8px rgba(255,255,255,0.05);
+  resize: none;
+}
+
+/* TEXTAREA SPECIFIC */
+.contact textarea {
+  min-height: 140px;
+}
+
+/* INPUT & TEXTAREA FOCUS/HOVER */
+.registration input:focus,
+.registration input:hover,
+.login .input-area input:focus,
+.login .input-area input:hover,
+.contact input:focus,
+.contact input:hover,
+.contact textarea:focus,
+.contact textarea:hover {
+  border-color: var(--primary);
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.35),
+    inset -4px -4px 8px rgba(255,255,255,0.05),
+    0 0 6px var(--primary);
+}
+
+/* ========================== */
+/*           BUTTONS          */
+/* ========================== */
+.registration button,
+.login button.login-btn,
+.contact button.contact-btn {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  transition: var(--transition);
+  box-shadow:
+    4px 4px 12px rgba(0,0,0,0.3),
+    -4px -4px 12px rgba(255,255,255,0.05);
+}
+
+.registration button:hover,
+.login button.login-btn:hover,
+.contact button.contact-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.registration button:active,
+.login button.login-btn:active,
+.contact button.contact-btn:active {
+  transform: scale(0.97);
+}
+
+/* ========================== */
+/*         RESPONSIVE         */
+/* ========================== */
+@media (max-width: 650px) {
+  .registration form,
+  .login form.login-box,
+  .contact form {
+    width: 90%;
+    padding: 30px 25px;
+  }
+
+  .registration h2,
+  .login h2.title,
+  .contact h2 {
+    font-size: 26px;
+  }
+}
+
+/* ========================== */
+/*      FADE + SLIDE ANIMATION */
+/* ========================== */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

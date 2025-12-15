@@ -1,0 +1,120 @@
+/* ===== RESET ===== */
+.login * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== PAGE CENTER ===== */
+.login .page-content {
+  min-height: calc(100vh - 160px); /* adjust for nav + footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ===== NEO-MORPHIC FORM BOX ===== */
+.login form.login-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 38px 42px;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow:
+    8px 8px 20px rgba(0,0,0,0.25),
+    -8px -8px 20px rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 20px; /* spacing from footer */
+}
+
+/* TITLE */
+.login h2.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+/* INPUT AREA */
+.login .input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login .input-area label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.9;
+  transition: color var(--transition);
+}
+
+.login .input-area input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.14);
+  outline: none;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--card);
+  transition: var(--transition);
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.35),
+    inset -4px -4px 8px rgba(255,255,255,0.05);
+}
+
+/* INPUT FOCUS/HOVER */
+.login .input-area input:focus,
+.login .input-area input:hover {
+  border-color: var(--primary);
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.35),
+    inset -4px -4px 8px rgba(255,255,255,0.05),
+    0 0 6px var(--primary);
+}
+
+/* BUTTON */
+.login button.login-btn {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  transition: var(--transition);
+  box-shadow:
+    4px 4px 12px rgba(0,0,0,0.3),
+    -4px -4px 12px rgba(255,255,255,0.05);
+}
+
+.login button.login-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.login button.login-btn:active {
+  transform: scale(0.97);
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .login form.login-box {
+    padding: 26px;
+  }
+  .login h2.title {
+    font-size: 26px;
+  }
+}

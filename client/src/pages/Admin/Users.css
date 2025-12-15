@@ -1,0 +1,187 @@
+/* ============================= */
+/*      USERS TABLE STYLES       */
+/* ============================= */
+
+.users-table-container {
+  padding: 25px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow:
+    6px 6px 16px var(--shadow-dark),
+    -6px -6px 16px var(--shadow-light);
+  transition: var(--transition);
+}
+
+.users-table-container h1 {
+  margin-bottom: 18px;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Table Base */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  color: var(--text);
+}
+
+/* Table Header */
+.users-table thead tr {
+  background: var(--primary);
+  color: #fff;
+}
+
+.users-table th {
+  padding: 14px;
+  font-size: 15px;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+/* Table Body */
+.users-table td {
+  padding: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ---------- THEME ROW COLORS ---------- */
+
+/* Light Theme */
+.theme-light .users-table tbody tr:nth-child(even) {
+  background: #f7f7f7;
+}
+.theme-light .users-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+/* Gray Theme */
+.theme-gray .users-table tbody tr:nth-child(even) {
+  background: #d2d2d2;
+}
+.theme-gray .users-table tbody tr:nth-child(odd) {
+  background: #e1e1e1;
+}
+
+/* Dark Theme */
+.theme-dark .users-table tbody tr:nth-child(even) {
+  background: #121212;
+}
+.theme-dark .users-table tbody tr:nth-child(odd) {
+  background: #1b1b1b;
+}
+
+/* ---------- ROW HOVER ---------- */
+.users-table tbody tr:hover {
+  background: rgba(0, 208, 255, 0.18);
+  color: var(--text);
+}
+
+/* ============================= */
+/*          ACTION BUTTONS       */
+/* ============================= */
+
+.action-btns {
+  max-width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+}
+
+/* Shared button style */
+.btn-edit,
+.btn-delete,
+.btn-update {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+  color: #fff;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Make <a> inside edit button behave like a button */
+.btn-edit a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Edit Button */
+.btn-edit {
+  background: var(--primary);
+}
+
+.btn-edit:hover {
+  background: #0094c7;
+  transform: translateY(-2px);
+}
+
+/* Update Button */
+.btn-update {
+  background: #28a745;
+}
+
+.btn-update:hover {
+  background: #1e7e34;
+  transform: translateY(-2px);
+}
+
+/* Delete Button */
+.btn-delete {
+  background: #ff4d4d;
+}
+
+.btn-delete:hover {
+  background: #d12727;
+  transform: translateY(-2px);
+}
+
+/* Press effect */
+.btn-edit:active,
+.btn-delete:active,
+.btn-update:active {
+  transform: scale(0.95);
+}
+
+/* ============================= */
+/*      MOBILE RESPONSIVE        */
+/* ============================= */
+
+@media (max-width: 760px) {
+  .users-table thead {
+    display: none;
+  }
+
+  .users-table tbody tr {
+    display: block;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .users-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+  }
+
+  .users-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: var(--primary);
+  }
+}
