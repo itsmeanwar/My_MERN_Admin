@@ -1,15 +1,14 @@
-
 # dependencies
 node_modules/
 
 # environment variables
 .env
-.env.local
+server/.env
 
-# build files
-build/
-dist/
+# build folders
+client/build/
+server/dist/
 
 # logs
 npm-debug.log*
-yarn-error.log*
+yarn-debug.log*
